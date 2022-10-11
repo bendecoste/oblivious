@@ -1,0 +1,25 @@
+auth:
+- auth_name: default
+  auth_type: signed_headers
+base_image: oblv_ubuntu_18_04_proxy
+build_args: []
+meta:
+  author: ben
+  author_email: ben@ben.com
+  git: https://github.com/bendecoste/oblivious.git
+  version: 0.0.1
+paths:
+- access: querier
+  path: /say_hello
+  short_description: hey
+roles:
+- role_auth: default
+  role_cardinality: 1
+  role_description: hey
+  role_name: querier
+traffic:
+  inbound:
+  - name: inbound
+    port: 80
+    type: tcp
+  outbound: []
